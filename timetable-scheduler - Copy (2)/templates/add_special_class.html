@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Special Class</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Subject</label>
+    <select name="subject_id" class="form-select" required>
+      {% for s in subjects %}
+        <option value="{{ s.id }}">{{ s.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Batch</label>
+    <select name="batch_id" class="form-select" required>
+      {% for b in batches %}
+        <option value="{{ b.id }}">{{ b.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Classroom</label>
+    <select name="room_id" class="form-select" required>
+      {% for c in classrooms %}
+        <option value="{{ c.id }}">{{ c.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Day</label>
+    <select name="day" class="form-select" required>
+      <option>Monday</option>
+      <option>Tuesday</option>
+      <option>Wednesday</option>
+      <option>Thursday</option>
+      <option>Friday</option>
+      <option>Saturday</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Period</label>
+    <input type="number" class="form-control" name="period" min="1" max="12" required>
+  </div>
+  <button type="submit" class="btn btn-success">Save</button>
+  <a href="{{ url_for('list_special_classes') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

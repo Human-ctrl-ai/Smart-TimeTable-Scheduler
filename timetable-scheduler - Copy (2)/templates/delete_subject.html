@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Delete Subject</h2>
+<p>Are you sure you want to delete <b>{{ subject.name }}</b> ({{ subject.course_code }})?</p>
+<form method="POST">
+  <button type="submit" class="btn btn-danger">Yes, Delete</button>
+  <a href="{{ url_for('list_subjects') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

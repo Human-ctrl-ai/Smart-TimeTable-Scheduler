@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Delete Batch</h2>
+<p>Are you sure you want to delete <b>{{ batch.name }}</b>?</p>
+<form method="POST">
+  <button type="submit" class="btn btn-danger">Yes, Delete</button>
+  <a href="{{ url_for('list_batches') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

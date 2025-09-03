@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Subject</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" value="{{ subject.name }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Course Code</label>
+    <input type="text" class="form-control" name="course_code" value="{{ subject.course_code }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Faculty</label>
+    <select name="faculty_id" class="form-select" required>
+      {% for f in faculties %}
+        <option value="{{ f.id }}" {% if f.id == subject.faculty_id %}selected{% endif %}>{{ f.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Classes/Week</label>
+    <input type="number" class="form-control" name="classes_per_week" value="{{ subject.classes_per_week }}" required>
+  </div>
+  <button type="submit" class="btn btn-success">Update</button>
+  <a href="{{ url_for('list_subjects') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

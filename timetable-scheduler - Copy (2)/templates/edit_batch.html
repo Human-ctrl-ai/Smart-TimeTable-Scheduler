@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Batch</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" value="{{ batch.name }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Number of Students</label>
+    <input type="number" class="form-control" name="num_students" value="{{ batch.num_students }}" required>
+  </div>
+  <button type="submit" class="btn btn-success">Update</button>
+  <a href="{{ url_for('list_batches') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

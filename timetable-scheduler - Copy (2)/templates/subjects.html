@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Subjects</h2>
+<a href="{{ url_for('add_subject') }}" class="btn btn-primary mb-3">➕ Add Subject</a>
+
+<ul class="list-group">
+  {% for subject in subjects %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span>
+        {{ subject.course_code }} - {{ subject.name }}  
+        (Faculty: {{ subject.faculty.name }}, Classes/Week: {{ subject.classes_per_week }})
+      </span>
+      <span>
+        <a href="{{ url_for('edit_subject', id=subject.id) }}" class="btn btn-sm btn-warning">✏ Edit</a>
+        <a href="{{ url_for('delete_subject', id=subject.id) }}" class="btn btn-sm btn-danger"
+           onclick="return confirm('Delete this subject?');">🗑 Delete</a>
+      </span>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

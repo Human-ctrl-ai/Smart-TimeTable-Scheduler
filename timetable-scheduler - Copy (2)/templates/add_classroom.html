@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Classroom</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Classroom Name</label>
+    <input type="text" class="form-control" name="name" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Capacity</label>
+    <input type="number" class="form-control" name="capacity" required>
+  </div>
+  <button type="submit" class="btn btn-success">Save</button>
+  <a href="{{ url_for('list_classrooms') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
